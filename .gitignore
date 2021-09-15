@@ -1,0 +1,8 @@
+*.swp
+**/__pycache__/**
+third_party/*
+
+# generated files
+utils/box_intersection.c
+utils/*so
+utils/build/*
