@@ -6,9 +6,9 @@ PyTorch implementation and models for **3DETR**.
 It does not rely on 3D backbones such as PointNet++ and uses few 3D-specific operators.
 3DETR obtains comparable or better performance than 3D detection methods such as VoteNet.
 The encoder can also be used for other 3D tasks such as shape classification.
-More details in the paper ["An End-to-End Transformer Model for 3D Object Detection"](https://arxiv.org).
+More details in the paper ["An End-to-End Transformer Model for 3D Object Detection"](http://arxiv.org/abs/2109.08141).
 
-[[website](https://facebookresearch.github.io/3detr)] [[arXiv](https://arxiv.org)] [[bibtex](#Citation)]
+[[website](https://facebookresearch.github.io/3detr)] [[arXiv](http://arxiv.org/abs/2109.08141)] [[bibtex](#Citation)]
 
 **Code description.** Our code is based on prior work such as DETR and VoteNet and we aim for simplicity in our implementation. We hope it can ease research in 3D detection.
 
