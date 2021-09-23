@@ -232,7 +232,7 @@ For convenience, we provide model weights for 3DETR trained for different number
 # Running 3DETR
 
 ## Installation
-Our code is tested with PyTorch 1.4.0, CUDA 10.2 and Python 3.6. It may work with other versions.
+Our code is tested with PyTorch 1.9.0, CUDA 10.2 and Python 3.6. It may work with other versions.
 
 You will need to install `pointnet2` layers by running
 
