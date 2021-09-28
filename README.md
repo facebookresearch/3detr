@@ -8,7 +8,7 @@ It does not rely on 3D backbones such as PointNet++ and uses few 3D-specific ope
 The encoder can also be used for other 3D tasks such as shape classification.
 More details in the paper ["An End-to-End Transformer Model for 3D Object Detection"](http://arxiv.org/abs/2109.08141).
 
-[[website](https://facebookresearch.github.io/3detr)] [[arXiv](http://arxiv.org/abs/2109.08141)] [[bibtex](#Citation)]
+[[`website`](https://facebookresearch.github.io/3detr)] [[`arXiv`](http://arxiv.org/abs/2109.08141)] [[`bibtex`](#Citation)]
 
 **Code description.** Our code is based on prior work such as DETR and VoteNet and we aim for simplicity in our implementation. We hope it can ease research in 3D detection.
 
@@ -265,7 +265,7 @@ cd utils && python cython_compile.py build_ext --inplace
 ## Dataset preparation
 
 We follow the VoteNet codebase for preprocessing our data.
-The instructions for preprocessing SUN RGB-D are [here] and ScanNet are [here].
+The instructions for preprocessing SUN RGB-D are [here](https://github.com/facebookresearch/votenet/tree/main/sunrgbd) and ScanNet are [here](https://github.com/facebookresearch/votenet/tree/main/scannet).
 
 You can edit the dataset paths in [`datasets/sunrgbd.py`](datasets/sunrgbd.py#L36) and [`datasets/scannet.py`](datasets/scannet.py#L23-L24) or choose to specify at runtime.
 
