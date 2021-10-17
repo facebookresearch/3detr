@@ -202,6 +202,9 @@ class Model3DETR(nn.Module):
         if enc_inds is None:
             # encoder does not perform any downsampling
             enc_inds = pre_enc_inds
+        else:
+            # use gather here to ensure that it works for both FPS and random sampling
+            enc_inds = torch.gather(pre_enc_inds, 1, enc_inds)
         return enc_xyz, enc_features, enc_inds
 
     def get_box_predictions(self, query_xyz, point_cloud_dims, box_features):
