@@ -225,14 +225,14 @@ class TransformerEncoderLayer(nn.Module):
         if self.use_ffn:
             # Implementation of Feedforward model
             self.linear1 = nn.Linear(d_model, dim_feedforward, bias=ffn_use_bias)
-            self.dropout = nn.Dropout(dropout, inplace=True)
+            self.dropout = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
             self.linear2 = nn.Linear(dim_feedforward, d_model, bias=ffn_use_bias)
             self.norm2 = NORM_DICT[norm_name](d_model)
             self.norm2 = NORM_DICT[norm_name](d_model)
-            self.dropout2 = nn.Dropout(dropout, inplace=True)
+            self.dropout2 = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
 
         self.norm1 = NORM_DICT[norm_name](d_model)
-        self.dropout1 = nn.Dropout(dropout, inplace=True)
+        self.dropout1 = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
 
         self.activation = ACTIVATION_DICT[activation]()
         self.normalize_before = normalize_before
@@ -311,13 +311,13 @@ class TransformerDecoderLayer(nn.Module):
         self.norm2 = NORM_DICT[norm_fn_name](d_model)
 
         self.norm3 = NORM_DICT[norm_fn_name](d_model)
-        self.dropout1 = nn.Dropout(dropout, inplace=True)
-        self.dropout2 = nn.Dropout(dropout, inplace=True)
-        self.dropout3 = nn.Dropout(dropout, inplace=True)
+        self.dropout1 = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
+        self.dropout2 = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
+        self.dropout3 = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
 
         # Implementation of Feedforward model
         self.linear1 = nn.Linear(d_model, dim_feedforward)
-        self.dropout = nn.Dropout(dropout, inplace=True)
+        self.dropout = nn.Dropout(dropout, inplace=False) # Inplace Originally True, set to False for Pytorch 1.10 Compatibility
         self.linear2 = nn.Linear(dim_feedforward, d_model)
 
         self.activation = ACTIVATION_DICT[activation]()
