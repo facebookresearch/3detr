@@ -305,8 +305,8 @@ class ScannetDetectionDataset(Dataset):
             )
 
         raw_sizes = target_bboxes[:, 3:6]
-        point_cloud_dims_min = point_cloud.min(axis=0)
-        point_cloud_dims_max = point_cloud.max(axis=0)
+        point_cloud_dims_min = point_cloud.min(axis=0)[:3]
+        point_cloud_dims_max = point_cloud.max(axis=0)[:3]
 
         box_centers = target_bboxes.astype(np.float32)[:, 0:3]
         box_centers_normalized = shift_scale_points(
@@ -344,7 +344,7 @@ class ScannetDetectionDataset(Dataset):
         ret_dict["gt_angle_residual_label"] = angle_residuals.astype(np.float32)
         target_bboxes_semcls = np.zeros((MAX_NUM_OBJ))
         target_bboxes_semcls[0 : instance_bboxes.shape[0]] = [
-            self.dataset_config.nyu40id2class[x]
+            self.dataset_config.nyu40id2class[int(x)]
             for x in instance_bboxes[:, -1][0 : instance_bboxes.shape[0]]
         ]
         ret_dict["gt_box_sem_cls_label"] = target_bboxes_semcls.astype(np.int64)

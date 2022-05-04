@@ -6,3 +6,6 @@ third_party/*
 utils/box_intersection.c
 utils/*so
 utils/build/*
+
+# outputs
+outputs/
